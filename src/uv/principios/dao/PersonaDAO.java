@@ -20,6 +20,11 @@ public class PersonaDAO implements IDAOGeneral<Persona>{
         res=con.execute(sql);
         return res; 
     }
+
+    @Override
+    public boolean eliminar(Persona pojo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
