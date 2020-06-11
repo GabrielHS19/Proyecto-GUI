@@ -154,7 +154,7 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         IDAOGeneral daop=FactoryDAO.create(FactoryDAO.TypeDAO.DEPARTAMENTO);
          Departamento dep= new Departamento();
         dep.setClave(txt_clave.getText());
-        daop.eliminar(txt_clave.getText());
+        daop.eliminar(dep);
     }//GEN-LAST:event_btoEliminarActionPerformed
 
 

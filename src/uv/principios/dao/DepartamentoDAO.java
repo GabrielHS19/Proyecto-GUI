@@ -20,10 +20,10 @@ public class DepartamentoDAO implements IDAOGeneral <Departamento>{
     }
     
     @Override
-    public boolean eliminar(String t) {
+    public boolean eliminar(Departamento pojo) {
         boolean res=false;
         conexionDB con= conexionDB.getInstance();
-        String sql = "DELETE FROM departamentos WHERE clave =" + t;
+        String sql = "DELETE FROM departamentos WHERE clave =" + "'" + pojo.getClave() + "'";
         res = con.execute(sql);
         return res;
     }

@@ -7,5 +7,5 @@ package uv.principios.dao;
  */
 public interface IDAOGeneral<T> {
     public boolean guardar (T pojo);
-    public boolean eliminar(String t);
+    public boolean eliminar(T pojo);
 }
