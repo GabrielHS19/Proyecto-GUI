@@ -34,11 +34,14 @@ public class Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        departamentos = new javax.swing.JMenuItem();
+        Persona = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 500));
 
+        jPanel1.setMaximumSize(new java.awt.Dimension(400, 300));
+        jPanel1.setMinimumSize(new java.awt.Dimension(300, 200));
         jPanel1.setLayout(new java.awt.BorderLayout());
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -56,13 +59,16 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu2.setText("Operaciones");
 
-        jMenuItem1.setText("Departamento");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        departamentos.setText("Departamento");
+        departamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                departamentosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(departamentos);
+
+        Persona.setText("Persona");
+        jMenu2.add(Persona);
 
         menu.add(jMenu2);
 
@@ -71,7 +77,7 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void departamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departamentosActionPerformed
         DepartamentosGUI dep=DepartamentosGUI.getInstance();
         dep.setVisible(true);
         for(Component com:jPanel1.getComponents()){
@@ -79,7 +85,7 @@ public class Principal extends javax.swing.JFrame {
                 return;
         }
         jPanel1.add(dep);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_departamentosActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         dispose();
@@ -124,9 +130,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Persona;
+    private javax.swing.JMenuItem departamentos;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menu;

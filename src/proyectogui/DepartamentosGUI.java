@@ -5,6 +5,10 @@
  */
 package proyectogui;
 
+import uv.principios.dao.Departamento;
+import uv.principios.dao.FactoryDAO;
+import uv.principios.dao.IDAOGeneral;
+
 /**
  *
  * @author jahaziel1999
@@ -36,9 +40,16 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         btoGuardar = new javax.swing.JButton();
         btoModificar = new javax.swing.JButton();
         btoEliminar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_nombre = new javax.swing.JTextField();
+        txt_clave = new javax.swing.JTextField();
 
         setClosable(true);
-        setMinimumSize(new java.awt.Dimension(400, 300));
+        setTitle("Departamentos");
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(300, 200));
         setPreferredSize(new java.awt.Dimension(400, 300));
 
         jToolBar2.setRollover(true);
@@ -48,6 +59,11 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         btoNuevo.setFocusable(false);
         btoNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btoNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btoNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btoNuevoActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btoNuevo);
 
         btoGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectogui/Imagenes/salvar .png"))); // NOI18N
@@ -55,6 +71,11 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         btoGuardar.setFocusable(false);
         btoGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btoGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btoGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btoGuardarActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btoGuardar);
 
         btoModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectogui/Imagenes/modificar.png"))); // NOI18N
@@ -69,12 +90,72 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         btoEliminar.setFocusable(false);
         btoEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btoEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btoEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btoEliminarActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btoEliminar);
 
         getContentPane().add(jToolBar2, java.awt.BorderLayout.PAGE_START);
 
+        jLabel1.setText("Clave: ");
+
+        jLabel2.setText("Nombre:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_clave, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(138, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txt_clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoNuevoActionPerformed
+        txt_clave.setText("");
+        txt_nombre.setText("");
+    }//GEN-LAST:event_btoNuevoActionPerformed
+
+    private void btoGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoGuardarActionPerformed
+        IDAOGeneral daop=FactoryDAO.create(FactoryDAO.TypeDAO.DEPARTAMENTO);
+        Departamento dep= new Departamento();
+        dep.setClave(txt_clave.getText());
+        dep.setNombre(txt_nombre.getText());
+        daop.guardar(dep);
+    }//GEN-LAST:event_btoGuardarActionPerformed
+
+    private void btoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoEliminarActionPerformed
+        IDAOGeneral daop=FactoryDAO.create(FactoryDAO.TypeDAO.DEPARTAMENTO);
+         Departamento dep= new Departamento();
+        dep.setClave(txt_clave.getText());
+        daop.eliminar(dep);
+    }//GEN-LAST:event_btoEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -82,6 +163,11 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
     private javax.swing.JButton btoGuardar;
     private javax.swing.JButton btoModificar;
     private javax.swing.JButton btoNuevo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar2;
+    private javax.swing.JTextField txt_clave;
+    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }
