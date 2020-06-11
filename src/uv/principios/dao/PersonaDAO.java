@@ -1,8 +1,7 @@
 
 package uv.principios.dao;
 
-import uv.principios.utils.conexionDB;
-
+import proyectogui.db.conexionDB;
 
 /**
  *
@@ -21,8 +20,10 @@ public class PersonaDAO implements IDAOGeneral<Persona>{
         return res; 
     }
 
+   
+
     @Override
-    public boolean eliminar(Persona pojo) {
+    public boolean eliminar(String t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

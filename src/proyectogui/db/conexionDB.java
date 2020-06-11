@@ -1,7 +1,8 @@
 
-package uv.principios.utils;
+package proyectogui.db;
 
 //import proyecto1.*;
+//import uv.principios.utils.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -43,4 +44,14 @@ public class conexionDB {
         }
         return res;
     }
+    
+    
+    
+    public boolean execute(TransaccionDB t){
+        boolean res=false;
+        t.execute(conn);
+        return res;
+    }
+    
+    
 }

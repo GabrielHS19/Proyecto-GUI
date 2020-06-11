@@ -1,7 +1,7 @@
 
 package uv.principios.dao;
 
-import uv.principios.utils.conexionDB;
+import proyectogui.db.conexionDB;
 
 /**
  *
@@ -20,10 +20,10 @@ public class DepartamentoDAO implements IDAOGeneral <Departamento>{
     }
     
     @Override
-    public boolean eliminar(Departamento pojo) {
+    public boolean eliminar(String t) {
         boolean res=false;
         conexionDB con= conexionDB.getInstance();
-        String sql = "DELETE FROM departamentos WHERE clave =" +pojo.getClave();
+        String sql = "DELETE FROM departamentos WHERE clave =" + t;
         res = con.execute(sql);
         return res;
     }
