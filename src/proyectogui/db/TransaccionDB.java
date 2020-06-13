@@ -11,6 +11,11 @@ import java.sql.Connection;
  *
  * @author gabrielhs
  */
-public abstract class TransaccionDB {
-    public abstract void execute(Connection conn);
+public abstract class TransaccionDB<T> {
+    protected T pojo;
+
+    public TransaccionDB(T pojo){
+        this.pojo=pojo;
+    }
+    public abstract boolean execute(Connection conn);
 }

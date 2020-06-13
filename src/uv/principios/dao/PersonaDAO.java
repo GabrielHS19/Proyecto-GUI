@@ -22,8 +22,10 @@ public class PersonaDAO implements IDAOGeneral<Persona>{
 
    
 
+    
+
     @Override
-    public boolean eliminar(String t) {
+    public boolean eliminar(Persona pojo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
