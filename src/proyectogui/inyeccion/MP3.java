@@ -13,7 +13,7 @@ public class MP3 implements IMedio{
 
     @Override
     public void beginplay() {
-         System.out.println("Inicia tocar");
+         System.out.println("Inicia tocar mp3");
     }
 
     @Override

@@ -12,7 +12,9 @@ package proyectogui.inyeccion;
 public class Principal {
     public static void main(String[] args) {
         MP3 mp3=new MP3();
+        MP4 mp4 = new MP4(); 
         ReproductorMultimedia reproductor=new ReproductorMultimedia();
         reproductor.play(mp3);
+        reproductor.play(mp4);
     }
 }
